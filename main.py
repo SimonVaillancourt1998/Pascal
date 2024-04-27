@@ -1,9 +1,10 @@
 from openai import OpenAI
-from dotenv import dotenv
+from dotenv import load_dotenv
+import os
 
-env = dotenv()
+load_dotenv()
 
-client = OpenAI(api_key=env.PASCAL_KEY)
+client = OpenAI(api_key=os.environ["PASCAL_KEY"])
 
 assistant = client.beta.assistants.retrieve(assistant_id="asst_pjOwrgeGnK2EkakZ1Tx3GULc")
 
