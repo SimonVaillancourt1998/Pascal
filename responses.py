@@ -58,6 +58,6 @@ def get_response(thread_id, user_input: str) -> str:
         return message
     except Exception as e:
         print(f"Error: {e}")
-        return "I'm sorry, I couldn't understand that."
+        return f"I'm sorry, the following issue occured: {e}"
 
 

@@ -3,8 +3,6 @@ from typing import Final
 import os
 from discord import Intents, Client, Message
 from responses import get_response, create_thread
-import asyncio  # Import asyncio for handling asynchronous tasks
-
 # Load env variables
 load_dotenv()
 DISCORD_TOKEN: Final[str] = os.environ["DISCORD_TOKEN"]
@@ -31,7 +29,8 @@ async def send_message(message: Message, user_message: str) -> None:
     
     if is_private := user_message[1] == "?":
         user_message = user_message[2:]
-    
+    else:
+        user_message = user_message[1:]
     # Trigger typing status
     async with message.channel.typing():
         # await asyncio.sleep(2)  # Simulate some processing time
