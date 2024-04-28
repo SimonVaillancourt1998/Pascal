@@ -55,6 +55,7 @@ async def on_ready() -> None:
 async def on_message(message: Message) -> None:
     if message.author == discord_client.user:
         return
+    if message.author.bot: return
     username: str = str(message.author)
     user_message: str = message.content
     channel: str = str(message.channel)
